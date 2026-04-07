@@ -34,5 +34,45 @@ const { title, showSidebar = true } = Astro.props;
       </article>
     </div>
   </main>
+  <script is:inline>
+    document.querySelectorAll('article.prose pre').forEach(pre => {
+      const wrapper = document.createElement('div');
+      wrapper.style.position = 'relative';
+      wrapper.className = 'group';
+      pre.parentNode.insertBefore(wrapper, pre);
+      wrapper.appendChild(pre);
+
+      const btn = document.createElement('button');
+      btn.textContent = '复制';
+      btn.className = 'copy-btn';
+      btn.setAttribute('aria-label', '复制代码');
+      btn.addEventListener('click', () => {
+        const text = pre.textContent || '';
+        navigator.clipboard.writeText(text).then(() => {
+          btn.textContent = '已复制 ✓';
+          setTimeout(() => { btn.textContent = '复制'; }, 1500);
+        });
+      });
+      wrapper.appendChild(btn);
+    });
+  </script>
+  <style>
+    .copy-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.75rem;
+      border-radius: 0.25rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+      background: #4b5563;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .copy-btn:hover { background: #6b7280; }
+    .group:hover .copy-btn { opacity: 1; }
+  </style>
 </body>
 </html>

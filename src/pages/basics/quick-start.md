@@ -110,6 +110,6 @@ claude
 
 恭喜你完成了快速上手！接下来建议阅读：
 
-- [三种模式详解](/basics/three-modes) — 了解不同场景下该用哪种模式
-- [核心 Slash 命令精选](/basics/slash-commands) — 掌握提升效率的关键命令
-- [快捷键速查](/basics/shortcuts) — 让你的操作更加流畅
+- [三种模式详解](/cc-guide/basics/three-modes) — 了解不同场景下该用哪种模式
+- [核心 Slash 命令精选](/cc-guide/basics/slash-commands) — 掌握提升效率的关键命令
+- [快捷键速查](/cc-guide/basics/shortcuts) — 让你的操作更加流畅

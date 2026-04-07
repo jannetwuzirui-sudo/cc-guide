@@ -1,11 +1,12 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
+const base = import.meta.env.BASE_URL;
 const cards = [
-  { icon: '📖', title: '基础教程', desc: '掌握 Claude Code 核心技能', href: '/basics/quick-start' },
-  { icon: '💻', title: '实战案例', desc: '4个真实接单项目实战', href: '/practice/static-site' },
-  { icon: '🚀', title: '部署上线', desc: '域名、部署、SSL 全流程', href: '/deploy/domain-guide' },
-  { icon: '🛒', title: '淘宝接单', desc: '开店、定价、沟通、交付', href: '/taobao/getting-started' },
+  { icon: '📖', title: '基础教程', desc: '掌握 Claude Code 核心技能', href: `${base}basics/quick-start` },
+  { icon: '💻', title: '实战案例', desc: '4个真实接单项目实战', href: `${base}practice/static-site` },
+  { icon: '🚀', title: '部署上线', desc: '域名、部署、SSL 全流程', href: `${base}deploy/domain-guide` },
+  { icon: '🛒', title: '淘宝接单', desc: '开店、定价、沟通、交付', href: `${base}taobao/getting-started` },
 ];
 ---
 
@@ -19,7 +20,7 @@ const cards = [
       学完 Claude Code，在淘宝接单做网站赚钱
     </p>
     <a
-      href="/basics/quick-start"
+      href={`${base}basics/quick-start`}
       class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
     >
       快速开始

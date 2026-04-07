@@ -1,4 +1,6 @@
 ---
+const base = import.meta.env.BASE_URL;
+
 interface SidebarSection {
   title: string;
   items: { label: string; href: string }[];
@@ -8,39 +10,39 @@ const sections: SidebarSection[] = [
   {
     title: '基础教程',
     items: [
-      { label: '5分钟快速上手', href: '/basics/quick-start' },
-      { label: '三种模式', href: '/basics/three-modes' },
-      { label: '核心命令精选', href: '/basics/slash-commands' },
-      { label: '快捷键速查', href: '/basics/shortcuts' },
+      { label: '5分钟快速上手', href: `${base}basics/quick-start` },
+      { label: '三种模式', href: `${base}basics/three-modes` },
+      { label: '核心命令精选', href: `${base}basics/slash-commands` },
+      { label: '快捷键速查', href: `${base}basics/shortcuts` },
     ],
   },
   {
     title: '实战案例',
     items: [
-      { label: '静态企业站', href: '/practice/static-site' },
-      { label: '营销落地页', href: '/practice/landing-page' },
-      { label: '博客站', href: '/practice/blog-site' },
-      { label: '小型Web应用', href: '/practice/mini-app' },
+      { label: '静态企业站', href: `${base}practice/static-site` },
+      { label: '营销落地页', href: `${base}practice/landing-page` },
+      { label: '博客站', href: `${base}practice/blog-site` },
+      { label: '小型Web应用', href: `${base}practice/mini-app` },
     ],
   },
   {
     title: '部署上线',
     items: [
-      { label: '域名购买与解析', href: '/deploy/domain-guide' },
-      { label: 'GitHub Pages', href: '/deploy/github-pages' },
-      { label: 'Vercel 部署', href: '/deploy/vercel-deploy' },
-      { label: '服务器部署', href: '/deploy/server-deploy' },
-      { label: 'HTTPS/SSL', href: '/deploy/https-ssl' },
+      { label: '域名购买与解析', href: `${base}deploy/domain-guide` },
+      { label: 'GitHub Pages', href: `${base}deploy/github-pages` },
+      { label: 'Vercel 部署', href: `${base}deploy/vercel-deploy` },
+      { label: '服务器部署', href: `${base}deploy/server-deploy` },
+      { label: 'HTTPS/SSL', href: `${base}deploy/https-ssl` },
     ],
   },
   {
     title: '淘宝接单',
     items: [
-      { label: '开店与接单入门', href: '/taobao/getting-started' },
-      { label: '定价策略', href: '/taobao/pricing' },
-      { label: '客户沟通技巧', href: '/taobao/client-communication' },
-      { label: '交付流程', href: '/taobao/delivery-flow' },
-      { label: '售后维护', href: '/taobao/after-sales' },
+      { label: '开店与接单入门', href: `${base}taobao/getting-started` },
+      { label: '定价策略', href: `${base}taobao/pricing` },
+      { label: '客户沟通技巧', href: `${base}taobao/client-communication` },
+      { label: '交付流程', href: `${base}taobao/delivery-flow` },
+      { label: '售后维护', href: `${base}taobao/after-sales` },
     ],
   },
 ];
@@ -74,9 +76,9 @@ const currentPath = Astro.url.pathname;
       </div>
     ))}
     <div>
-      <a href="/faq" class:list={[
+      <a href={`${base}faq`} class:list={[
         'block px-3 py-1.5 rounded text-sm transition-colors',
-        currentPath === '/faq'
+        currentPath === `${base}faq`
           ? 'bg-[var(--color-primary)] text-white'
           : 'hover:bg-gray-100 dark:hover:bg-gray-800'
       ]}>常见问题 FAQ</a>

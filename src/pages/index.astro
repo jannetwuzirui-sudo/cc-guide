@@ -1,7 +1,8 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-const base = import.meta.env.BASE_URL;
+const rawBase = import.meta.env.BASE_URL;
+const base = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 const cards = [
   { icon: '📖', title: '基础教程', desc: '掌握 Claude Code 核心技能', href: `${base}basics/quick-start` },
   { icon: '💻', title: '实战案例', desc: '4个真实接单项目实战', href: `${base}practice/static-site` },

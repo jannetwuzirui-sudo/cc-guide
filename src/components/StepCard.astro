@@ -1,0 +1,18 @@
+---
+interface Props {
+  steps: { title: string; content: string }[];
+}
+const { steps } = Astro.props;
+---
+
+<div class="space-y-4 my-6">
+  {steps.map((step, i) => (
+    <div class="flex gap-4 p-4 rounded-lg border dark:border-[var(--color-border-dark)] border-[var(--color-border-light)] dark:bg-[var(--color-bg-dark-secondary)] bg-white">
+      <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center text-sm font-bold">{i + 1}</div>
+      <div>
+        <h4 class="font-semibold mb-1">{step.title}</h4>
+        <p class="text-sm opacity-80">{step.content}</p>
+      </div>
+    </div>
+  ))}
+</div>

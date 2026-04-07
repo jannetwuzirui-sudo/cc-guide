@@ -1,0 +1,26 @@
+---
+interface Props {
+  code: string;
+  lang?: string;
+}
+const { code, lang = 'bash' } = Astro.props;
+const id = `code-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class="relative group my-4">
+  <button data-copy={id} class="absolute top-2 right-2 px-2 py-1 text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity bg-gray-600 text-white hover:bg-gray-500" aria-label="复制代码">复制</button>
+  <pre id={id}><code class={`language-${lang}`}>{code}</code></pre>
+</div>
+
+<script>
+  document.querySelectorAll('[data-copy]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = (btn as HTMLElement).dataset.copy!;
+      const code = document.getElementById(id)?.textContent || '';
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '已复制';
+        setTimeout(() => btn.textContent = '复制', 1500);
+      });
+    });
+  });
+</script>

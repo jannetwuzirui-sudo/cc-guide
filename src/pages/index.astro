@@ -1,0 +1,62 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+const cards = [
+  { icon: '📖', title: '基础教程', desc: '掌握 Claude Code 核心技能', href: '/basics/quick-start' },
+  { icon: '💻', title: '实战案例', desc: '4个真实接单项目实战', href: '/practice/static-site' },
+  { icon: '🚀', title: '部署上线', desc: '域名、部署、SSL 全流程', href: '/deploy/domain-guide' },
+  { icon: '🛒', title: '淘宝接单', desc: '开店、定价、沟通、交付', href: '/taobao/getting-started' },
+];
+---
+
+<MainLayout showSidebar={false}>
+  <!-- Hero -->
+  <section class="text-center py-20 px-4">
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+      Claude Code 接单实战指南
+    </h1>
+    <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8">
+      学完 Claude Code，在淘宝接单做网站赚钱
+    </p>
+    <a
+      href="/basics/quick-start"
+      class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors"
+    >
+      快速开始
+    </a>
+  </section>
+
+  <!-- Cards -->
+  <section class="max-w-6xl mx-auto px-4 pb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {cards.map((card) => (
+        <a
+          href={card.href}
+          class="group block p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:shadow-md hover:-translate-y-1 transition-all"
+        >
+          <span class="text-4xl block mb-4">{card.icon}</span>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            {card.title}
+          </h2>
+          <p class="text-gray-600 dark:text-gray-400">{card.desc}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Learning Path -->
+  <section class="max-w-4xl mx-auto px-4 pb-20">
+    <h2 class="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
+      学习路径
+    </h2>
+    <div class="flex flex-wrap items-center justify-center gap-4 text-lg text-gray-700 dark:text-gray-300">
+      <span class="px-4 py-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg font-medium">📖 基础</span>
+      <span class="text-gray-400 dark:text-gray-500">→</span>
+      <span class="px-4 py-2 bg-green-50 dark:bg-green-900/30 rounded-lg font-medium">💻 实战</span>
+      <span class="text-gray-400 dark:text-gray-500">→</span>
+      <span class="px-4 py-2 bg-purple-50 dark:bg-purple-900/30 rounded-lg font-medium">🚀 部署</span>
+      <span class="text-gray-400 dark:text-gray-500">→</span>
+      <span class="px-4 py-2 bg-orange-50 dark:bg-orange-900/30 rounded-lg font-medium">🛒 接单</span>
+    </div>
+  </section>
+</MainLayout>
